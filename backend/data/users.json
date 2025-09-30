@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "旅人 太郎",
+        "email": "guest@example.com",
+        "password": "$2y$12$Pp96pq8lFHXyvxU4.w5vwegRs2Ukft7feRsQeDAMgsS2tkk.X7pCS",
+        "avatar": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=256&q=80",
+        "role": "member"
+    },
+    {
+        "id": 2,
+        "name": "旅人 花子",
+        "email": "hanako@example.com",
+        "password": "$2y$12$Pp96pq8lFHXyvxU4.w5vwegRs2Ukft7feRsQeDAMgsS2tkk.X7pCS",
+        "avatar": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=256&q=80",
+        "role": "premium"
+    }
+]

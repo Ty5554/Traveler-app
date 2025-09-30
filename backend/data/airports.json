@@ -1,0 +1,14 @@
+[
+    { "code": "HND", "city": "東京(羽田)" },
+    { "code": "NRT", "city": "東京(成田)" },
+    { "code": "CTS", "city": "札幌(新千歳)" },
+    { "code": "KIX", "city": "大阪(関西)" },
+    { "code": "ITM", "city": "大阪(伊丹)" },
+    { "code": "NGO", "city": "名古屋(中部)" },
+    { "code": "FUK", "city": "福岡" },
+    { "code": "OKA", "city": "沖縄(那覇)" },
+    { "code": "SDJ", "city": "仙台" },
+    { "code": "KOJ", "city": "鹿児島" },
+    { "code": "HKG", "city": "香港" },
+    { "code": "ICN", "city": "ソウル(仁川)" }
+]

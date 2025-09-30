@@ -1,0 +1,58 @@
+// ============================================
+// Variables
+// ============================================
+
+// Colors
+$bg: #f6f9ff;
+$panel: #ffffff;
+$muted: #5f6f85;
+$brand: #2b7cff;
+$brand-2: #00bfae;
+$text: #1b2737;
+$card: #ffffff;
+$border: #d5e2f2;
+$muted-bg: #e9f1ff;
+$error: #d93025;
+
+// Hero
+$hero-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=80');
+
+// Typography
+$font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+// Layout
+$container-max-width: 1100px;
+$container-padding: 92%;
+
+// Spacing
+$gap-xs: 6px;
+$gap-sm: 8px;
+$gap-md: 12px;
+$gap-lg: 16px;
+$gap-xl: 20px;
+$gap-2xl: 24px;
+$gap-3xl: 32px;
+
+// Border radius
+$radius-sm: 8px;
+$radius-md: 10px;
+$radius-lg: 12px;
+$radius-xl: 14px;
+$radius-2xl: 16px;
+$radius-3xl: 18px;
+$radius-4xl: 20px;
+$radius-5xl: 24px;
+$radius-full: 999px;
+
+// Box shadow
+$shadow-sm: 0 8px 18px rgba(27, 39, 55, .08);
+$shadow-md: 0 12px 28px rgba(27, 39, 55, .08);
+$shadow-lg: 0 14px 22px rgba(27, 39, 55, .05);
+$shadow-xl: 0 18px 32px rgba(27, 39, 55, .08);
+$shadow-2xl: 0 20px 46px rgba(27, 39, 55, .12);
+$shadow-user: 0 12px 26px rgba(27, 39, 55, .12);
+
+// Breakpoints
+$breakpoint-sm: 420px;
+$breakpoint-md: 600px;
+$breakpoint-lg: 900px;

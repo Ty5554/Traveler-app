@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TRAVELER – 旅行予約（デモ）</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">TRAVELER</div>
+            <nav class="nav">
+                <a href="#flights" class="nav-link active" data-tab="flights">航空券</a>
+                <a href="#hotels" class="nav-link" data-tab="hotels">ホテル</a>
+                <a href="#about" class="nav-link" data-tab="about">会社概要</a>
+            </nav>
+            <div class="auth-area">
+                <button class="cta" id="login-trigger">ログイン</button>
+                <div class="user-chip hidden" id="user-chip">
+                    <img class="user-avatar" src="" alt="ユーザーアバター" />
+                    <div class="user-meta">
+                        <span class="user-name"></span>
+                        <span class="user-role"></span>
+                    </div>
+                    <button class="logout-btn" id="logout-btn" type="button">ログアウト</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-inner">
+            <h1>かんたん・お得に、旅へ。</h1>
+            <p>国内/海外の航空券・ホテルをまとめて検索できます（デモ）。</p>
+            <div class="search-tabs">
+                <button class="tab-btn active" data-tab="flights">航空券</button>
+                <button class="tab-btn" data-tab="hotels">ホテル</button>
+            </div>
+
+            <!-- Flights Search -->
+            <form id="flight-form" class="search-form" data-tab="flights">
+                <div class="field">
+                    <label>出発地</label>
+                    <input type="text" id="from-airport" placeholder="例: HND（羽田）" list="airport-list"
+                        autocomplete="off" />
+                </div>
+                <div class="field">
+                    <label>到着地</label>
+                    <input type="text" id="to-airport" placeholder="例: CTS（新千歳）" list="airport-list"
+                        autocomplete="off" />
+                </div>
+                <div class="field">
+                    <label>出発日</label>
+                    <input type="date" id="depart-date" />
+                </div>
+                <div class="field">
+                    <label>人数</label>
+                    <input type="number" id="pax" min="1" value="1" />
+                </div>
+                <button type="submit" class="primary">検索</button>
+            </form>
+
+            <!-- Hotels Search -->
+            <form id="hotel-form" class="search-form hidden" data-tab="hotels">
+                <div class="field">
+                    <label>エリア/都市名</label>
+                    <input type="text" id="hotel-city" placeholder="例: 東京" autocomplete="off" />
+                </div>
+                <div class="field">
+                    <label>チェックイン</label>
+                    <input type="date" id="checkin-date" />
+                </div>
+                <div class="field">
+                    <label>チェックアウト</label>
+                    <input type="date" id="checkout-date" />
+                </div>
+                <div class="field">
+                    <label>人数</label>
+                    <input type="number" id="guests" min="1" value="2" />
+                </div>
+                <button type="submit" class="primary">検索</button>
+            </form>
+
+            <datalist id="airport-list"></datalist>
+        </div>
+    </section>
+
+    <main class="container main-content">
+        <section class="section site-metrics">
+            <article class="metric">
+                <figure class="metric-media">
+                    <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=800&q=80" alt="ホテルの客室の写真" loading="lazy" />
+                </figure>
+                <span class="metric-value">12,500+</span>
+                <span class="metric-label">提携ホテル数</span>
+                <p>主要都市から離島リゾートまで国内外の宿泊施設を網羅しています。</p>
+            </article>
+            <article class="metric">
+                <figure class="metric-media">
+                    <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=800&q=80" alt="青空を飛ぶ旅客機" loading="lazy" />
+                </figure>
+                <span class="metric-value">1,200+</span>
+                <span class="metric-label">対応路線</span>
+                <p>LCCからフルサービスキャリアまで、片道・往復・乗継を柔軟に検索。</p>
+            </article>
+            <article class="metric">
+                <figure class="metric-media">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="サポートデスクで相談を受けるスタッフ" loading="lazy" />
+                </figure>
+                <span class="metric-value">4.7 / 5</span>
+                <span class="metric-label">お客様満足度</span>
+                <p>予約サポートの平均レビュー。旅前から旅後まで専任コンシェルジュが伴走。</p>
+            </article>
+        </section>
+
+        <section id="featured-flights" class="section">
+            <div class="section-head">
+                <h2>人気の航空券セレクション</h2>
+                <p>出張・観光に定評のある路線をピックアップ。運賃タイプや機材、特典を比較できます。</p>
+            </div>
+            <div class="card-grid" data-slot="featured-flights">
+                <article class="card card-compact placeholder-card">
+                    <figure class="card-media">
+                        <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=1200&q=80" alt="夜明けに離陸する旅客機" loading="lazy" />
+                    </figure>
+                    <header class="card-header">
+                        <span class="badge">ANA</span>
+                        <div class="route">
+                            <strong>東京(羽田) → 札幌(新千歳)</strong>
+                            <span>07:55 - 09:35 / 1時間40分</span>
+                        </div>
+                    </header>
+                    <ul class="card-meta-list">
+                        <li><strong>運賃</strong> スーパー旅割28</li>
+                        <li><strong>機材</strong> Boeing 787</li>
+                        <li><strong>特典</strong> 機内Wi-Fi無料</li>
+                    </ul>
+                    <div class="card-footer">
+                        <div class="price">¥18,800<span> / 片道</span></div>
+                    </div>
+                </article>
+            </div>
+            <a class="section-link" href="#flight-form">航空券を検索する</a>
+        </section>
+
+        <section id="featured-hotels" class="section">
+            <div class="section-head">
+                <h2>編集部おすすめホテル</h2>
+                <p>実際のレビューと現地取材をもとに、ロケーション・設備・サービスが光る宿を厳選。</p>
+            </div>
+            <div class="card-grid" data-slot="featured-hotels">
+                <article class="card card-compact hotel placeholder-card">
+                    <figure class="card-media">
+                        <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=1200&q=80" alt="夜景の見えるホテルラウンジ" loading="lazy" />
+                    </figure>
+                    <header class="card-header">
+                        <span class="badge">Boutique Traveler</span>
+                        <div>
+                            <strong>THE CROSSING 渋谷</strong>
+                            <span>東京・渋谷 / ★ 4.7</span>
+                        </div>
+                    </header>
+                    <p class="card-note">渋谷スクランブルを望むルーフトップバー付きホテル。アートギャラリー併設で感度の高い滞在に。</p>
+                    <ul class="card-meta-list">
+                        <li><strong>最寄り</strong> 渋谷駅 徒歩2分</li>
+                        <li><strong>設備</strong> ルーフトップバー / セルフラウンジ / 無料Wi-Fi</li>
+                    </ul>
+                    <div class="card-footer">
+                        <div class="price">¥23,200<span> / 泊</span></div>
+                    </div>
+                </article>
+            </div>
+            <a class="section-link" href="#hotel-form">ホテルを探す</a>
+        </section>
+
+        <section id="results" class="search-results">
+            <div class="results-placeholder">
+                <figure class="results-media">
+                    <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80" alt="旅行の計画を立てるために航空券とホテルを比較するイメージ" loading="lazy" />
+                </figure>
+                <p>条件を入力して航空券やホテルを検索すると、ここに結果が表示されます。</p>
+            </div>
+        </section>
+
+        <section id="about-section" class="hidden about">
+            <h2>Travelerについて</h2>
+            <div class="about-grid">
+                <article class="about-card">
+                    <figure class="about-media">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="ガラス張りのオフィス外観" loading="lazy" />
+                    </figure>
+                    <h3>会社概要</h3>
+                    <dl class="about-list">
+                        <div><dt>商号</dt><dd>Traveler, Inc.（トラベラー株式会社）</dd></div>
+                        <div><dt>所在地</dt><dd>東京都渋谷区桜丘町1-2-3 Traveler Square</dd></div>
+                        <div><dt>設立</dt><dd>2016年6月</dd></div>
+                        <div><dt>資本金</dt><dd>18億円（資本準備金含む）</dd></div>
+                        <div><dt>事業内容</dt><dd>旅行商品の企画・販売、宿泊施設運営支援、AI旅程プランニング</dd></div>
+                        <div><dt>主要取引先</dt><dd>ANA X、JALPAK、JR東日本、HIS、Expedia Group ほか</dd></div>
+                    </dl>
+                </article>
+                <article class="about-card">
+                    <figure class="about-media">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80" alt="旅行者がラウンジで相談している様子" loading="lazy" />
+                    </figure>
+                    <h3>サービスの特長</h3>
+                    <ul class="about-bullets">
+                        <li>国内外の航空会社120社とダイレクトに連携し、最新の空席・運賃情報を即時表示。</li>
+                        <li>ホテルは公式サイトと同一料金保証。AIレコメンドで最適なプランを提案します。</li>
+                        <li>24時間日本語サポートセンターが、変更・取消・手配のご相談に対応。</li>
+                        <li>法人向けダッシュボードで出張旅費の見える化と経費精算を効率化。</li>
+                    </ul>
+                </article>
+                <article class="about-card">
+                    <figure class="about-media">
+                        <img src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=900&q=80" alt="カメラマンとインタビューの風景" loading="lazy" />
+                    </figure>
+                    <h3>メディア実績</h3>
+                    <p>日本経済新聞、Forbes JAPAN、旅と食の専門誌「TRANSIT」など多数のメディアに掲載。DXによる旅行手配の効率化と、地方観光の需要創出に貢献しています。</p>
+                    <h3>パートナー募集</h3>
+                    <p>地方自治体や観光事業者との連携プログラムを随時受付中。取材・広告掲載に関するお問い合わせもお気軽にご相談ください。</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand">TRAVELER</div>
+                <small>© 2025 Traveler, Inc. – Demo Only</small>
+            </div>
+            <nav class="footer-nav">
+                <a href="#">利用規約</a>
+                <a href="#">プライバシー</a>
+                <a href="#">お問い合わせ</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        window.API_BASE = "http://127.0.0.1:9000"; // PHP 内蔵サーバのURL
+    </script>
+    <div class="modal hidden" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+        <div class="modal-dialog">
+            <button type="button" class="modal-close" id="auth-close" aria-label="閉じる">×</button>
+            <h2 id="auth-title">Traveler ログイン</h2>
+            <p class="modal-lead">会員登録済みの方はログインすると、予約の管理やお気に入りの保存ができます。（デモ用認証）</p>
+            <form id="login-form" class="modal-form">
+                <div class="form-group">
+                    <label for="login-email">メールアドレス</label>
+                    <input type="email" id="login-email" autocomplete="email" placeholder="example@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="login-password">パスワード</label>
+                    <input type="password" id="login-password" autocomplete="current-password" placeholder="6文字以上" minlength="6" required />
+                </div>
+                <p class="form-error hidden" id="login-error"></p>
+                <div class="modal-foot">
+                    <span class="help">デモ用アカウント: guest@example.com / demo123</span>
+                    <button type="submit" class="primary" id="login-submit">ログイン</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

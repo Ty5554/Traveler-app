@@ -1,0 +1,139 @@
+// ============================================
+// Mixins
+// ============================================
+
+@use 'variables' as *;
+
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button styles
+@mixin button-base {
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: $radius-lg;
+  padding: 10px 14px;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: linear-gradient(90deg, $brand, $brand-2);
+  color: white;
+  
+  &[disabled] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $brand;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Card styles
+@mixin card-base {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: $radius-xl;
+  padding: $gap-xl;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+}
+
+@mixin card-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-xl $radius-xl 0 0;
+  background: $muted-bg;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+}
+
+// Form styles
+@mixin form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: $radius-md;
+  border: 1px solid $border;
+  background: #f3f7ff;
+  color: $text;
+  
+  &:focus {
+    outline: 2px solid rgba($brand, 0.25);
+    border-color: rgba($brand, 0.6);
+  }
+}
+
+// Container
+@mixin container {
+  width: min($container-max-width, $container-padding);
+  margin-inline: auto;
+}
+
+// Media queries
+@mixin mobile-sm {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// Backdrop blur
+@mixin backdrop-blur {
+  backdrop-filter: saturate(140%) blur(8px);
+}
+
+// Grid utilities
+@mixin grid-responsive($min-width: 240px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap-lg;
+}
+
+// Hover transform
+@mixin hover-scale($scale: 1.05) {
+  transition: transform 0.5s ease;
+  
+  &:hover {
+    transform: scale($scale);
+  }
+}

@@ -1,0 +1,394 @@
+// ============================================
+// Components
+// ============================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Auth Area
+.auth-area {
+  @include flex-center;
+  gap: $gap-md;
+}
+
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 6px 6px;
+  border-radius: $radius-full;
+  border: 1px solid $border;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: $shadow-user;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: $muted-bg;
+}
+
+.user-meta {
+  @include flex-column;
+  align-items: flex-start;
+  min-width: 90px;
+  line-height: 1.2;
+  
+  .user-name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .user-role {
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: $muted;
+  }
+}
+
+.logout-btn {
+  @include button-secondary;
+  padding: 4px 6px;
+  border-radius: $radius-sm;
+}
+
+// Buttons
+.cta {
+  @include button-primary;
+}
+
+button.primary {
+  @include button-primary;
+}
+
+.tab-btn {
+  border: 0;
+  background: transparent;
+  color: $muted;
+  padding: 8px 14px;
+  border-radius: $radius-md;
+  cursor: pointer;
+  
+  &.active {
+    background: $muted-bg;
+    color: $brand;
+  }
+}
+
+// Modal
+.modal {
+  position: fixed;
+  inset: 0;
+  @include flex-center;
+  padding: 20px;
+  background: rgba(19, 32, 45, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  
+  &.hidden {
+    display: none;
+  }
+}
+
+.modal-dialog {
+  width: min(420px, 100%);
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: $radius-4xl;
+  box-shadow: 0 24px 48px rgba(27, 39, 55, 0.18);
+  padding: 28px;
+  position: relative;
+  display: grid;
+  gap: $gap-lg;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  color: $muted;
+  cursor: pointer;
+}
+
+.modal-lead {
+  margin: 0;
+  color: $muted;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.modal-form {
+  display: grid;
+  gap: $gap-lg;
+}
+
+.modal-foot {
+  @include flex-between;
+  gap: $gap-md;
+  
+  .help {
+    font-size: 12px;
+    color: $muted;
+  }
+}
+
+// Form Groups
+.form-group {
+  display: grid;
+  gap: $gap-xs;
+  text-align: left;
+  
+  label {
+    font-size: 13px;
+    color: $muted;
+  }
+  
+  input {
+    @include form-input;
+  }
+}
+
+.form-error {
+  margin: -6px 0 0;
+  color: $error;
+  font-size: 12px;
+}
+
+// Badge
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: $radius-full;
+  background: $muted-bg;
+  color: $brand;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+// Cards
+.card {
+  @include card-base;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  .meta {
+    color: $muted;
+    font-size: 13px;
+  }
+  
+  .price {
+    font-size: 20px;
+    font-weight: 800;
+  }
+}
+
+.card-media {
+  @include card-media;
+  aspect-ratio: 16 / 9;
+  margin: -14px -14px 12px;
+  
+  &:hover img {
+    @include hover-scale;
+  }
+}
+
+.card-compact {
+  @extend .card;
+  gap: $gap-md;
+  padding: $gap-lg;
+  
+  .card-media {
+    aspect-ratio: 4 / 3;
+    margin: -18px -18px 12px;
+    border-radius: $radius-3xl $radius-3xl 0 0;
+  }
+  
+  .card-footer {
+    justify-content: flex-end;
+  }
+  
+  .price {
+    font-size: 18px;
+  }
+}
+
+.card-header {
+  @include flex-between;
+  align-items: flex-start;
+  gap: $gap-lg;
+  
+  .route {
+    @include flex-column;
+    gap: 4px;
+  }
+}
+
+.card-meta-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+  color: $muted;
+  
+  li {
+    display: flex;
+    gap: $gap-xs;
+    align-items: center;
+  }
+  
+  strong {
+    color: $text;
+    font-weight: 600;
+  }
+}
+
+.card-note {
+  margin: 12px 0 0;
+  color: $muted;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card-footer {
+  @include flex-between;
+  gap: $gap-md;
+  flex-wrap: wrap;
+  
+  .price {
+    font-size: 20px;
+    font-weight: 800;
+    
+    span {
+      color: $muted;
+      font-size: 12px;
+      margin-left: 6px;
+      font-weight: 500;
+    }
+  }
+}
+
+.placeholder-card {
+  opacity: 0.92;
+  border-style: dashed;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: none;
+  
+  .badge,
+  .price {
+    color: $brand;
+  }
+  
+  .card-note {
+    color: $muted;
+  }
+}
+
+// Search Components
+.search-tabs {
+  display: inline-flex;
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: $radius-xl;
+  padding: 3px;
+  gap: 3px;
+  box-shadow: $shadow-sm;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 14px auto 0;
+  padding: $gap-md;
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: $radius-xl;
+  box-shadow: 0 10px 24px rgba(27, 39, 55, 0.08);
+  
+  .field {
+    @include flex-column;
+    align-items: flex-start;
+    text-align: left;
+    
+    label {
+      font-size: 12px;
+      color: $muted;
+      margin-bottom: $gap-xs;
+    }
+  }
+  
+  input,
+  select {
+    @include form-input;
+  }
+  
+  .primary {
+    @include button-primary;
+    font-weight: 700;
+  }
+}
+
+// Filters
+.filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0 20px;
+  
+  select,
+  input {
+    @include form-input;
+    padding: 8px 10px;
+  }
+}
+
+// Metrics
+.metric {
+  @include card-base;
+  display: grid;
+  gap: $gap-md;
+}
+
+.metric-media {
+  margin: -20px -20px 8px;
+  border-radius: $radius-2xl $radius-2xl 0 0;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.metric-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: $brand;
+}
+
+.metric-label {
+  color: $muted;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.metric p {
+  margin: 0;
+  color: $text;
+  font-size: 14px;
+  line-height: 1.6;
+}

@@ -1,0 +1,100 @@
+// ============================================
+// Base Styles
+// ============================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+:root {
+  --bg: #{$bg};
+  --panel: #{$panel};
+  --muted: #{$muted};
+  --brand: #{$brand};
+  --brand-2: #{$brand-2};
+  --text: #{$text};
+  --card: #{$card};
+  --border: #{$border};
+  --muted-bg: #{$muted-bg};
+  --hero-image: #{$hero-image};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  color: $text;
+  background: $bg;
+  
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.hidden {
+  display: none;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+// Links
+a {
+  color: $brand;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+// Form elements
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+// Utility classes
+.text-muted {
+  color: $muted;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

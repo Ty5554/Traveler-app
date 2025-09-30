@@ -1,0 +1,13 @@
+// ============================================
+// Main SCSS File
+// ============================================
+
+// Forward all partials to make variables and mixins available
+@forward 'variables';
+@forward 'mixins';
+
+// Use all partial files
+@use 'base';
+@use 'components';
+@use 'layout';
+@use 'media-queries';

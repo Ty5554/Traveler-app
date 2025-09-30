@@ -1,0 +1,33 @@
+{
+  "name": "test-air-trip",
+  "version": "1.0.0",
+  "description": "このリポジトリは、旅行予約サイトの一般的な**UI/UX**（検索フォーム、一覧、並べ替え/絞り込み）をモックデータで再現したデモです。既存サイトのコンテンツや意匠を複製せず、**独自デザイン**と**汎用的な機能構成**にしています。",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "watch": "gulp watch",
+    "clean": "gulp clean",
+    "scss": "gulp scss",
+    "build-css": "sass src/scss/main.scss public/styles.css",
+    "watch-css": "sass src/scss/main.scss public/styles.css --watch",
+    "build-css-compressed": "sass src/scss/main.scss public/styles.css --style compressed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "del": "^8.0.1",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^10.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.93.2"
+  }
+}

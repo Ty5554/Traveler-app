@@ -1,0 +1,323 @@
+// ============================================
+// Layout
+// ============================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Site Header
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245, 248, 255, 0.85);
+  @include backdrop-blur;
+  border-bottom: 1px solid $border;
+}
+
+.header-inner {
+  @include flex-between;
+  padding: 14px 0;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.nav-link {
+  color: $muted;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: $radius-md;
+  
+  &.active,
+  &:hover {
+    color: $brand;
+    background: $muted-bg;
+  }
+}
+
+// Hero Section
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: 
+    radial-gradient(1200px 600px at 50% -20%, rgba($brand, 0.18), transparent),
+    radial-gradient(800px 400px at 70% -10%, rgba($brand-2, 0.18), transparent),
+    linear-gradient($bg, $bg 60%, #f0f7ff);
+  padding: 48px 0 30px;
+  border-bottom: 1px solid $border;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $hero-image center/cover no-repeat;
+    opacity: 0.55;
+    mix-blend-mode: luminosity;
+    transform: scale(1.05);
+    transition: transform 6s ease;
+  }
+  
+  &:hover::before {
+    transform: scale(1.1);
+  }
+}
+
+.hero-inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba($border, 0.7);
+  border-radius: $radius-5xl;
+  padding: 32px 24px 40px;
+  box-shadow: $shadow-2xl;
+  
+  h1 {
+    margin: 0 0 6px;
+    font-size: 36px;
+  }
+  
+  p {
+    margin: 0 0 20px;
+    color: $muted;
+  }
+}
+
+// Main Content
+.main-content {
+  padding: 40px 0 60px;
+  display: grid;
+  gap: 50px;
+}
+
+// Sections
+.section {
+  display: grid;
+  gap: $gap-lg;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $gap-lg;
+  
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  p {
+    margin: 0;
+    color: $muted;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+}
+
+.section-link {
+  justify-self: flex-end;
+  color: $brand;
+  font-weight: 600;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Featured Sections
+#featured-flights,
+#featured-hotels {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: $radius-5xl;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba($brand, 0.12), rgba($brand-2, 0.05));
+  border: 1px solid rgba($border, 0.6);
+  box-shadow: 0 18px 40px rgba(27, 39, 55, 0.12);
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    transform: scale(1);
+    opacity: 0.45;
+    transition: transform 6s ease;
+  }
+  
+  &:hover::before {
+    transform: scale(1.1);
+  }
+  
+  .section-link {
+    justify-self: flex-end;
+  }
+  
+  .card-grid {
+    margin-top: 8px;
+  }
+}
+
+#featured-flights::before {
+  background: 
+    radial-gradient(120% 100% at 0% 0%, rgba($brand, 0.22), transparent 58%),
+    radial-gradient(120% 120% at 100% 100%, rgba($brand-2, 0.16), transparent 60%);
+}
+
+#featured-hotels::before {
+  background: 
+    radial-gradient(120% 100% at 0% 0%, rgba(255, 173, 90, 0.18), transparent 58%),
+    radial-gradient(120% 120% at 100% 100%, rgba(67, 56, 202, 0.18), transparent 60%);
+}
+
+// Grid Layouts
+.card-grid {
+  @include grid-responsive;
+}
+
+.site-metrics {
+  @include grid-responsive(220px);
+  gap: $gap-lg;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 24px 0;
+}
+
+// Search Results
+.search-results {
+  display: grid;
+  gap: 20px;
+}
+
+.results-placeholder {
+  @include card-base;
+  border-style: dashed;
+  text-align: center;
+  color: $muted;
+  display: grid;
+  gap: $gap-lg;
+  align-items: center;
+}
+
+.results-media {
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.empty {
+  color: $muted;
+  font-size: 14px;
+}
+
+// About Section
+.about {
+  padding: 10px 0 40px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: $gap-lg;
+}
+
+.about-card {
+  @include card-base;
+  display: grid;
+  gap: $gap-lg;
+  
+  h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  p {
+    margin: 0;
+    color: $text;
+    line-height: 1.6;
+  }
+}
+
+.about-media {
+  margin: -24px -24px 0;
+  border-radius: $radius-2xl $radius-2xl 0 0;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.about-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  
+  div {
+    display: grid;
+    gap: 4px;
+  }
+  
+  dt {
+    font-weight: 600;
+    color: $muted;
+    font-size: 13px;
+  }
+  
+  dd {
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.about-bullets {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  color: $text;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+// Site Footer
+.site-footer {
+  border-top: 1px solid $border;
+  padding: 20px 0;
+  background: #f2f6ff;
+}
+
+.footer-inner {
+  @include flex-between;
+}

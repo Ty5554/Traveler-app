@@ -1,0 +1,198 @@
+// ============================================
+// Media Queries
+// ============================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@include tablet {
+  .results {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: $gap-lg;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .auth-area {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@include mobile {
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    gap: $gap-md;
+    justify-content: center;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .auth-area {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $gap-sm;
+  }
+
+  .user-chip {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #login-trigger {
+    align-self: center;
+  }
+
+  .hero {
+    padding: 36px 0 24px;
+  }
+
+  .hero-inner {
+    padding: 24px 18px 28px;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+
+  #featured-flights,
+  #featured-hotels {
+    padding: 20px;
+    border-radius: $radius-3xl;
+  }
+
+  .modal-dialog {
+    width: 100%;
+    border-radius: $radius-2xl;
+    padding: 24px;
+  }
+
+  .modal-foot {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .help {
+      text-align: center;
+    }
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    
+    label {
+      width: 100%;
+    }
+  }
+
+  .metric-media img {
+    height: 120px;
+  }
+
+  .about-media img {
+    height: 160px;
+  }
+
+  .results-media img {
+    height: 200px;
+  }
+
+  .results-placeholder {
+    padding: 20px;
+  }
+}
+
+@include mobile-sm {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .cta,
+  button.primary {
+    width: 100%;
+  }
+
+  .user-chip {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $gap-sm;
+    padding: 10px;
+  }
+
+  .user-meta {
+    align-items: center;
+  }
+
+  .modal-dialog {
+    padding: 20px;
+  }
+
+  #featured-flights,
+  #featured-hotels {
+    padding: $gap-lg;
+    border-radius: $radius-2xl;
+  }
+
+  .modal-close {
+    top: 8px;
+    right: 10px;
+  }
+
+  .modal-lead {
+    font-size: 13px;
+  }
+
+  .metric-media img {
+    height: 110px;
+  }
+
+  .about-media img {
+    height: 140px;
+  }
+
+  .results-media img {
+    height: 180px;
+  }
+
+  .results-placeholder {
+    padding: $gap-lg;
+  }
+}
