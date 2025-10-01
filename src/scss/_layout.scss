@@ -7,7 +7,7 @@
 
 // Site Header
 .site-header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 50;
   background: rgba(245, 248, 255, 0.85);
@@ -91,6 +91,18 @@
     margin: 0 0 20px;
     color: $muted;
   }
+}
+
+.hero-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba($brand, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: $radius-lg;
+  font-size: 12px;
+  letter-spacing: 0.05em;
 }
 
 // Main Content
