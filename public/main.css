@@ -553,7 +553,7 @@ button.primary[disabled] {
 }
 
 .site-header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 50;
   background: rgba(245, 248, 255, 0.85);
@@ -629,6 +629,18 @@ button.primary[disabled] {
 .hero-inner p {
   margin: 0 0 20px;
   color: #5f6f85;
+}
+
+.hero-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(43, 124, 255, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
 }
 
 .main-content {
