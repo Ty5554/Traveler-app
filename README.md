@@ -7,3 +7,11 @@
 php -S 127.0.0.1:9000 -t backend
 # 別ターミナル
 python3 -m http.server 8080 -d public
+
+# 初回のみ: SCSS をビルドして CSS を生成
+npm install
+npm run dev
+```
+
+- `npm run dev` を起動したままにすると、`src/scss/` の変更が自動的に `public/main.css` へ反映されます。
+- 単発で反映したい場合は `npm run scss` や `npx sass src/scss/main.scss public/main.css` を実行してください。
